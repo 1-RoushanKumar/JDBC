@@ -1,0 +1,47 @@
+Differences Between JDBC and JPA/Hibernate
+
+1. Abstraction Level:
+   - JDBC: Low-level API that allows direct interaction with the database using SQL queries.
+   - JPA/Hibernate: Provides an abstraction over JDBC, allowing developers to work with Java objects instead of writing SQL queries.
+
+2. Object-Relational Mapping (ORM):
+   - JDBC: Manual mapping of results from SQL queries to Java objects.
+   - JPA/Hibernate: Automatically maps Java objects to database tables using annotations.
+
+3. Boilerplate Code Reduction:
+   - JDBC: Requires significant boilerplate code for tasks like opening/closing connections and mapping result sets.
+   - JPA/Hibernate: Reduces repetitive code, managing these tasks behind the scenes.
+
+4. Database Independence:
+   - JDBC: Hardcoded SQL queries can require significant code changes when switching databases.
+   - JPA/Hibernate: Generates database-agnostic SQL, facilitating easier database switching.
+
+5. Caching and Performance:
+   - JDBC: No built-in caching; every query results in a direct database call.
+   - JPA/Hibernate: Provides caching mechanisms to reduce database hits and improve performance.
+
+6. Transactions:
+   - JDBC: Manual handling of transaction management.
+   - JPA/Hibernate: Easier and declarative transaction management using annotations.
+
+7. Criteria Queries:
+   - JDBC: Only supports plain SQL queries, which can become complex.
+   - JPA/Hibernate: Supports criteria queries, allowing dynamic query building.
+
+8. Lazy Loading:
+   - JDBC: Does not support lazy loading natively.
+   - JPA/Hibernate: Supports lazy loading out-of-the-box.
+
+Why Use JPA/Hibernate in Spring Boot?
+- Seamless integration with Spring Boot’s auto-configuration features.
+- Reduces manual data access logic with Spring Data JPA repositories.
+- Declarative transaction management with annotations.
+
+How JPA/Hibernate Uses JDBC Behind the Scenes:
+1. Underlying Mechanism: JPA/Hibernate is built on top of JDBC; it translates operations into SQL executed via JDBC.
+2. Connection Management: JPA/Hibernate handles connection pooling and transaction management using JDBC.
+3. SQL Generation: Generates appropriate SQL statements and executes them using JDBC.
+4. Data Retrieval: Executes JDBC queries based on entities and maps results back to Java objects.
+5. Performance Optimization: Utilizes optimizations like caching and batching to enhance JDBC performance.
+
+In summary, JPA/Hibernate abstracts the complexities of JDBC while leveraging its functionality for efficient database interactions.

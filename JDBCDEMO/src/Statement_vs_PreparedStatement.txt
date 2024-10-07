@@ -1,0 +1,28 @@
+
+Differences between Statement and PreparedStatement in JDBC:
+
+1. **Definition**:
+   - **Statement**: Used for executing simple SQL queries without parameters. It is created using the `Statement` interface.
+   - **PreparedStatement**: Used for executing precompiled SQL queries with or without parameters. It is created using the `PreparedStatement` interface.
+
+2. **Performance**:
+   - **Statement**: Each time a query is executed, the SQL statement is compiled and executed anew, which can lead to performance overhead, especially for repeated queries.
+   - **PreparedStatement**: The SQL query is precompiled and stored in the database. Subsequent executions of the same query with different parameters can be performed more quickly, leading to improved performance.
+
+3. **SQL Injection**:
+   - **Statement**: Vulnerable to SQL injection attacks because it directly concatenates user inputs into the SQL string.
+   - **PreparedStatement**: More secure against SQL injection attacks since it uses placeholders for parameters, which are automatically escaped by the JDBC driver.
+
+4. **Usage of Parameters**:
+   - **Statement**: Does not support parameterized queries. Any parameters must be manually concatenated into the SQL string.
+   - **PreparedStatement**: Supports parameterized queries. You can set parameters using methods like `setInt()`, `setString()`, etc.
+
+5. **Flexibility**:
+   - **Statement**: Ideal for executing simple SQL statements that do not require parameters or complex logic.
+   - **PreparedStatement**: More flexible for executing dynamic SQL statements where the input values might change.
+
+6. **Return Types**:
+   - **Statement**: Can be used to execute SQL queries that return multiple result sets, including update counts and generated keys.
+   - **PreparedStatement**: Primarily focused on executing SQL statements with parameter binding and can also return update counts and generated keys.
+
+In summary, `PreparedStatement` is generally preferred over `Statement` for executing SQL queries that require parameters due to its performance advantages, security against SQL injection, and ease of use with dynamic queries.
